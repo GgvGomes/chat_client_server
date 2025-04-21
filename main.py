@@ -2,7 +2,7 @@ import sys
 
 def main():
     if len(sys.argv) != 2 or sys.argv[1] not in ["client", "server"]:
-        print("Uso: python main.py [client|servidor]")
+        print("Uso: python main.py [client|server]")
         return
 
     if sys.argv[1] == "server":
