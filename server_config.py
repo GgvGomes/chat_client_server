@@ -28,7 +28,12 @@ def handle_client(conn, addr):
                 conn.sendall("Você foi desconectado pelo servidor.".encode())
                 break
             print(f"[{addr}] {msg}")
-            broadcast(f"{addr}: {msg}", sender_conn=conn)
+            
+            # Envia de volta ao cliente que enviou
+            conn.sendall(f"Você disse: {msg}".encode())
+            
+            # Também pode enviar para outros (broadcast opcional)
+            # broadcast(f"{addr}: {msg}", sender_conn=conn)
     except:
         pass
     finally:
